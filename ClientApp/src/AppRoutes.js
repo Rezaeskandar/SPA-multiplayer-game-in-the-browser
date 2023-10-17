@@ -4,6 +4,8 @@ import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import Game from "./components/Game";
 import Profile from "./components/Profile";
+import Score from "./components/Score";
+
 
 const AppRoutes = [
     {
@@ -28,6 +30,11 @@ const AppRoutes = [
         path: '/profile',
         requireAuth: true,
         element: <Profile />
+    },
+    {
+        path: '/score',
+        //requireAuth: true,
+        element: <Score />
     },
     ...ApiAuthorzationRoutes
 ];
