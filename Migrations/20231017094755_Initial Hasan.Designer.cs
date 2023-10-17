@@ -12,14 +12,14 @@ using SPAGameASPReact.Data;
 namespace SPAGameASPReact.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231016182000_init")]
-    partial class init
+    [Migration("20231017094755_Initial Hasan")]
+    partial class InitialHasan
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.22")
+                .HasAnnotation("ProductVersion", "6.0.23")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -321,6 +321,9 @@ namespace SPAGameASPReact.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("GamesPlayed")
                         .HasColumnType("int");
 
@@ -332,6 +335,9 @@ namespace SPAGameASPReact.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NickName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
