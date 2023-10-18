@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
 import authService from './api-authorization/AuthorizeService';
+import './Profile.css';
 
 const Profile = () => {
     const [profile, setProfile] = useState(null);
@@ -27,7 +28,7 @@ const Profile = () => {
 
     return (
         <div>
-            <h2>User Profile</h2>
+            <h2 className="headLine">User Profile</h2>
             {profile ? (
                 <div>
                     <p><strong>User Name:</strong> {profile.userName}</p>
