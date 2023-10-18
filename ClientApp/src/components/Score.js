@@ -21,10 +21,12 @@ const Score = () => {
     return (
         <div>
             <h2 className="headLine">Highest Scores</h2>
-            <ul>
+            <ul className="">
                 {highestScores.map(score => (
                     <li key={score.userId}>
-                        User ID: {score.userId}, User Name: {score.userName}, Highest Points: {score.highestPoints}
+                        {/*User ID: {score.userId},*/}
+                        User Name: {score.userName},
+                        Highest Points: {score.highestPoints}
                     </li>
                 ))}
             </ul>

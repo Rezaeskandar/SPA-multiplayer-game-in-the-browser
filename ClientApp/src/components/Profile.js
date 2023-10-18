@@ -32,7 +32,7 @@ const Profile = () => {
             {profile ? (
                 <div>
                     <p><strong>User Name:</strong> {profile.userName}</p>
-                    <p><strong>User ID:</strong> {profile.userId}</p>
+                    {/*<p><strong>User ID:</strong> {profile.userId}</p>*/}
                     <p><strong>Games Played:</strong> {profile.gamesPlayed}</p>
                     <p><strong>Games Won:</strong> {profile.gamesWon}</p>
                     <p><strong>Guessing Attempts:</strong> {profile.guessingAttempts}</p>

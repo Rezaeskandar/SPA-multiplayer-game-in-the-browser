@@ -90,8 +90,12 @@ const GameController = () => {
             <p><strong>You need to guess a number between 1 to 10</strong> </p>
             {gameStarted && gameId && (
                 <div className="guessInput">
-                    <input type="number" value={guess} onChange={(e) => setGuess(e.target.value)} />
-                    <button onClick={submitGuess}>Submit Guess</button>
+                    <p>
+                        <input type="number" className="guessInputBox" value={guess} onChange={(e) => setGuess(e.target.value)} />
+                    </p>
+                    <p>
+                        <button onClick={submitGuess} className="guessInputButton">Submit Guess</button>
+                    </p>
                     <p>{result}</p>
                     <p>{message}</p>
                     {/*<p>Games Played: {gamesPlayed}</p>*/}
