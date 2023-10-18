@@ -3,20 +3,17 @@ import authService from './api-authorization/AuthorizeService';
 import './Game.css'
 
 const GameController = () => {
-    const [gameId, setGameId] = useState(localStorage.getItem('gameId') || null);
-    // const [guess, setGuess] = useState(localStorage.getItem('guess') || '');
-    //const [gameId, setGameId] = useState(null);
+    const [gameId, setGameId] = useState(null);
     const [guess, setGuess] = useState('');
     const [result, setResult] = useState('');
     const [message, setMessage] = useState('');
     const [gameStarted, setGameStarted] = useState(false); // State to track whether the game has started
+    const [incompletedGame, setIncompletedGame] = useState(false);
+    const [userId, setUserId] = useState('');
+
+
     //const [gamesPlayed, setGamesPlayed] = useState(0);
     //const [gamesWon, setGamesWon] = useState(0);
-    useEffect(() => {
-        localStorage.setItem('gameId', gameId);
-        // localStorage.setItem('guess', guess);
-    }, [gameId]);
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -32,13 +29,38 @@ const GameController = () => {
                 const data = await response.json();
                 //setGamesPlayed(data.gamesPlayed);
                 //setGamesWon(data.gamesWon);
+                return data;
             } catch (error) {
                 console.error('Error fetching user profile:', error);
             }
         };
 
-        fetchData();
+        fetchData().then((response) => {
+            setUserId(response.userId);
+        });
+
     }, []); // Empty dependency array ensures useEffect runs once after initial render
+
+
+    useEffect(() => {
+        const cachedGame = localStorage.getItem('game');
+        if (cachedGame && cachedGame !== 'undefined') {
+            const parsedGame = JSON.parse(cachedGame)
+            if (gameId == null) {
+                setGameId(parsedGame.gameId);
+            }
+
+            if (!gameStarted) {
+                console.log("parsedGame", JSON.stringify(parsedGame));
+
+                if (parsedGame.userId == userId) {
+                    setIncompletedGame(true);
+                }
+            }
+        }
+
+    }, [gameId, userId]);
+
 
     const startNewGame = async () => {
         try {
@@ -55,6 +77,8 @@ const GameController = () => {
             setResult('');
             setMessage('');
             setGameStarted(true);
+            setIncompletedGame(false);
+            localStorage.setItem('game', JSON.stringify({ gameId: data.gameId, userId: userId }));
         } catch (error) {
             console.error('Error starting new game:', error);
         }
@@ -76,6 +100,13 @@ const GameController = () => {
             setMessage(data.message); // Set the message received from the server
             //setGuess('');
             // You can update user's score in state here if needed
+
+            //remove cached game from local storage
+            if (data.correct) {
+                //setGameId(null);
+                //setIncompletedGame(false);
+                localStorage.removeItem("game");
+            }
         } catch (error) {
             console.error('Error submitting guess:', error);
         }
@@ -88,7 +119,12 @@ const GameController = () => {
                 <button onClick={startNewGame} className="startBoxBackGround">Start New Game</button>
             </div>
             <p><strong>You need to guess a number between 1 to 10</strong> </p>
-            {gameStarted && gameId && (
+
+            {incompletedGame ? (
+                <p>Start previous game where you have left gameId: {gameId}; if you want to start new game click on Start New Game button</p>
+            ) : (<p></p>)} 
+
+            {(gameStarted || incompletedGame)  && (
                 <div className="guessInput">
                     <p>
                         <input type="number" className="guessInputBox" value={guess} onChange={(e) => setGuess(e.target.value)} />
