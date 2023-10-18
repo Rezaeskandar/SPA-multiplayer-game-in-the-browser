@@ -1,0 +1,51 @@
+﻿
+.headLine {
+    font-size: 4em;
+    /*width: 60px;
+    height: 60px;
+    border: 1px solid #ccc;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*cursor: pointer;*/
+}
+
+.startBoxBackGround {
+    background-color: aquamarine;
+}
+
+.startBox {
+    padding: 1rem;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guessInput {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-row {
+    display: flex;
+    justify-content: center;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-info {
+    margin-left: 20px;
+}
+
+.status {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}

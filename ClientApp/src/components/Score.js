@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect } from 'react';
+import './Score.css';
 
 const Score = () => {
     const [highestScores, setHighestScores] = useState([]);
@@ -19,7 +20,7 @@ const Score = () => {
 
     return (
         <div>
-            <h2>Highest Scores</h2>
+            <h2 className="headLine">Highest Scores</h2>
             <ul>
                 {highestScores.map(score => (
                     <li key={score.userId}>

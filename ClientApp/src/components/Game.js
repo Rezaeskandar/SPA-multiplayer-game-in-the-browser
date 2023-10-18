@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
 import authService from './api-authorization/AuthorizeService';
+import './Game.css'
 
 const GameController = () => {
     const [gameId, setGameId] = useState(localStorage.getItem('gameId') || null);
@@ -82,10 +83,13 @@ const GameController = () => {
 
     return (
         <div>
-            <button onClick={startNewGame}>Start New Game</button>
+            <h2 className="headLine">Guessing Game</h2>
+            <div className="startBox">
+                <button onClick={startNewGame} className="startBoxBackGround">Start New Game</button>
+            </div>
             <p><strong>You need to guess a number between 1 to 10</strong> </p>
             {gameStarted && gameId && (
-                <div>
+                <div className="guessInput">
                     <input type="number" value={guess} onChange={(e) => setGuess(e.target.value)} />
                     <button onClick={submitGuess}>Submit Guess</button>
                     <p>{result}</p>
