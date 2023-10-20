@@ -5,6 +5,8 @@ SPA (Single Page Apps).Our team has builded a Authentication logging and has dev
 
 Client side only decoration of the page we have builded. All logic has been generated in server side. We had fetching data from server side.
 
+Proper navigation will show you way of logging and way of playing. You will see only high score of the all user. You dont need to logging in th game.
+
 ## Structure of Project:
 |   Tasks     |   Framwork    |  Effect  |
 |-----|--------|-------|
