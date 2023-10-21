@@ -1,11 +1,27 @@
 # SPA-multiplayer-game-in-the-browser
-SPA - ASP.Net core react (Guessing game, profile status, historical highscore, Api, SingelR{notification})
+SPA - ASP.Net core react (Guessing game, profile status, historical highscore, Api, SignalR{notification}).  
+Welcome to our Game App. We have built this Game using ASP.NET Core with React.js templates in .NET 6 framework, This Game will give you a seamless gaming experience, combining engaging gameplay, user-friendly interfaces, and secure authentication features. With individual accounts authentication this Game is the ultimate destination for gaming enthusiasts.
 
-SPA (Single Page Apps).Our team has builded a Authentication logging and has developed ASP.Net core React page. User may able to play a game with identifiying logging. User may leave middle of the game and play again from previous status. We will ask to user if u want start from previos game or want to start new game. Game page and profile status need a authentication. 
+## Features
+#### Login and Registration  
+Login Page: Users can securely log in to their accounts, ensuring a safe gaming environment.  
+New User Registration: New players can register and create accounts to access all the gaming features.
 
-Client side only decoration of the page we have builded. All logic has been generated in server side. We had fetching data from server side.
+#### Game Pages
+Gameplay Page: Enjoy the Guessing game where every fail attempt will deduct your points.  
+Persisted Game State: Your game progress is saved, allowing you to continue from where you left off.  
+Server-Side Game Logic: All game logic is calculated server-side, ensuring fairness and preventing cheating.
+#### User Profile
+Profile Page: View your gaming statistics, including the number of games played, victories, and more.  
+Authentication: Profile and game pages are accessible only to authorized users, guaranteeing data privacy.
+#### Highscore Leaderboards
+ Scores: Compete with players globally and locally for the top position on leaderboards.
+#### Technology Stack
+Backend: ASP.NET Core API with Entity Framework and SignalR for real-time Notification.  
+Frontend: React.js for a dynamic and interactive user interface.  
+Database: Well-designed database structures using Entity Framework Code-First approach.
 
-Proper navigation will show you way of logging and way of playing. You will see only high score of the all user. You dont need to logging in th game.
+
 
 ## Structure of Project:
 |   Tasks     |   Framwork    |  Effect  |
@@ -18,7 +34,10 @@ Proper navigation will show you way of logging and way of playing. You will see 
 |Authentication | ASP.NET Core 6 - 6.0.23  | Get and Post
 |Connection |  JSON   |  Global Datbase
 
-
+## Database Structure
+Users Table: Stores user information, including username, password hash, email, and gaming statistics.  
+Games Table: Records game details.  
+Highscores Table: Contains daily and historical highscores for different games.
 ## Database diagram
 The diagram includes automitacally generated authentication and authorization relations as well as our game database design and their relationships.
 
